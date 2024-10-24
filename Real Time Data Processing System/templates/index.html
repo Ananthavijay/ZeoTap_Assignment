@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Weather Monitoring System</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="GET" action="/">
+        <label for="city">Select a city:</label>
+        <select name="city" id="city">
+            {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Summary">
+    </form>
+
+    <h2>Daily Summaries</h2>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Date</th>
+            <th>Avg Temp (°C)</th>
+            <th>Max Temp (°C)</th>
+            <th>Min Temp (°C)</th>
+            <th>Dominant Condition</th>
+            <th>Humidity (%)</th>
+            <th>Wind Speed (m/s)</th>
+            <th>Graph</th>
+        </tr>
+        {% for summary in summaries %}
+            <tr>
+                <td>{{ summary.city }}</td>
+                <td>{{ summary.date }}</td>
+                <td>{{ summary.avg_temp | round(1) }}</td>
+                <td>{{ summary.max_temp | round(1) }}</td>
+                <td>{{ summary.min_temp | round(1) }}</td>
+                <td>{{ summary.dominant_condition }}</td>
+                <td>{{ summary.avg_humidity }}</td>
+                <td>{{ summary.avg_wind_speed }}</td>
+                <td>
+                    <img src="{{ url_for('static', filename='graphs/' + summary.city + '_temperature_graph.png') }}" alt="Temperature graph" style="width: 150px; height: auto;">
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>5-Day Forecast</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Temperature (°C)</th>
+            <th>Condition</th>
+            <th>Humidity (%)</th>
+            <th>Wind Speed (m/s)</th>
+        </tr>
+        {% for forecast in forecasts[:5] %}
+            <tr>
+                <td>{{ forecast.datetime }}</td>
+                <td>{{ forecast.temperature | round(1) }}</td>
+                <td>{{ forecast.condition }}</td>
+                <td>{{ forecast.humidity }}</td>
+                <td>{{ forecast.wind_speed }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Alerts</h2>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Alert Type</th>
+            <th>Message</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for alert in alerts %}
+            <tr>
+                <td>{{ alert.city }}</td>
+                <td>{{ alert.alert_type }}</td>
+                <td>{{ alert.message }}</td>
+                <td>{{ alert.timestamp }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <button onclick="window.location.href='/start'">Start Monitoring</button>
+    <button onclick="window.location.href='/stop'">Stop Monitoring</button>
+
+</body>
+</html>
