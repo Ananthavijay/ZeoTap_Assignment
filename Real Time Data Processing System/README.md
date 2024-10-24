@@ -1,4 +1,4 @@
-## Weather Monitoring System
+## Real-Time Data Processing System for Weather Monitoring with Rollups and Aggregates
 
 This project is a real-time weather monitoring system that fetches weather data from OpenWeatherMap API, stores it in a database, processes daily summaries, and provides alerts based on temperature thresholds. It includes features for visualizing weather trends and displaying 5-day forecasts.
 
