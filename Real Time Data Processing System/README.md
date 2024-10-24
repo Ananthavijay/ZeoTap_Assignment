@@ -34,6 +34,24 @@ This project is a real-time weather monitoring system that fetches weather data 
   - UPDATE_INTERVAL: Set the interval (in seconds) for fetching weather data (default is 300 seconds).
   - TEMPERATURE_THRESHOLD: Set the temperature threshold for alerts (default is 20°C).
 
+### Project Structure
+```
+weather-monitoring/
+│
+├── app.py                   # Flask application
+├── config.py                # Configuration file for cities and API key
+├── database.py              # Database management for weather readings and alerts
+├── weather_service.py       # Main weather service logic for fetching data and generating summaries
+├── data_cleanup.py          # Script for cleaning old data from the database
+├── templates/
+│   └── index.html           # HTML template for the Flask app
+├── static/
+│   ├── styles.css           # CSS file for styling the web app
+│   └── graphs/              # Directory to store temperature trend graphs
+├── test_weather_service.py   # Test cases for weather service functionality
+└── requirements.txt         # Python dependencies
+```
+
 ### Screenshots
 1. UI
 ![image](https://github.com/user-attachments/assets/a7eb75e6-e803-41ec-b300-bbe2fab2f879)
