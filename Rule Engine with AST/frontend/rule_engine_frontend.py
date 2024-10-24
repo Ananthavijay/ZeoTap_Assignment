@@ -23,7 +23,7 @@ def create_rule():
     
     response = requests.post(f"{API_URL}/create_rule", json={"rule_name": rule_name, "rule_string": rule_string})
     
-    if response.status_code == 200:
+    if response.status_code == 201:
         flash("Rule created successfully!")
     else:
         flash(f"Error: {response.json().get('detail')}")
@@ -66,7 +66,7 @@ def combine_rules():
     
     response = requests.post(f"{API_URL}/combine_rules", json={"rule_name": combined_rule_name, "rule_strings": selected_rules})
     
-    if response.status_code == 200:
+    if response.status_code == 201:
         flash("Rules combined successfully!")
     else:
         flash(f"Error: {response.json().get('detail')}")

@@ -37,7 +37,14 @@ class Node:
         return f'Node(type={self.node_type}, value={self.value}, left={self.left}, right={self.right})'
 
 # Helper functions for rule parsing and evaluation
+def validate_condition(condition):
+    comparison_operators = [r'<=', r'>=', r'!=', r'=', r'>', r'<']
+    pattern = r'^\s*\w+\s*(' + '|'.join(comparison_operators) + r')\s+.+$'
+    if not re.match(pattern, condition):
+        raise HTTPException(status_code=400, detail="Each condition must include a valid comparison operator.")
+
 def parse_condition(condition):
+    validate_condition(condition)
     return Node("operand", value=condition)
 
 def create_ast(rule_string):
