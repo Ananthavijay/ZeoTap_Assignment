@@ -2,10 +2,10 @@
 This project implements a rule engine using a FastAPI backend and a Flask frontend. Users can create, evaluate, and combine rules based on specific conditions, enabling dynamic rule evaluation against given data.
 
 ### Features
-- Rule Creation: Users can define rules with logical conditions.
-- Rule Evaluation: Evaluate rules against data inputs.
-- Rule Combination: Combine multiple rules into a single rule.
-- Current Rules Retrieval: Fetch all defined rules from the database.
+- Rule Creation: Users can define rules with logical conditions
+- Rule Evaluation: Evaluate rules against data inputs
+- Rule Combination: Combine multiple rules into a single rule
+- Current Rules Retrieval: Fetch all defined rules from the database
 - Rule Validation: Detect errors such as:
     - Unbalanced parentheses
     - Invalid characters in rule strings
@@ -13,20 +13,20 @@ This project implements a rule engine using a FastAPI backend and a Flask fronte
     - Missing comparison operators
 
 ### Tech Stack
-- Backend: FastAPI for building the API.
-- Database: SQLite for rule storage.
-- Frontend: Flask for user interface.
-- Testing: Pytest for testing API endpoints and functionality.
+- Backend: FastAPI for building the API
+- Database: SQLite for rule storage
+- Frontend: Flask for user interface
+- Testing: Pytest for testing API endpoints and functionality
 
 ### How It Works
 The project separates the frontend and backend. The frontend provides a user-friendly interface to interact with the API. Users can create and evaluate rules through the interface, but the API can also be accessed independently for programmatic usage.
 
 ### Setup Steps
 - Install the required packages: Run `pip install -r requirements.txt`
-- Database Initialization: Run `python backend/database_init.py` to create the SQLite database.
-- Start the API: Launch the FastAPI server using `python backend/rule_engine_api.py`, which starts at `http://127.0.0.1:8000`.
-- Start the Frontend: Run the Flask application using `python frontend/rule_engine_frontend.py`.
-- Access the Application: Navigate to `http://127.0.0.1:5000` in your web browser.
+- Database Initialization: Run `python backend/database_init.py` to create the SQLite database
+- Start the API: Launch the FastAPI server using `python backend/rule_engine_api.py`, which starts at `http://127.0.0.1:8000`
+- Start the Frontend: Run the Flask application using `python frontend/rule_engine_frontend.py`
+- Access the Application: Navigate to `http://127.0.0.1:5000` in your web browser
 
 ### Testing
 - Run the tests by executing the following command: `pytest backend/test_rule_engine_api.py`
