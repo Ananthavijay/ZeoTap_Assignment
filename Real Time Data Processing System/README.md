@@ -67,3 +67,7 @@ weather-monitoring/
 
 5. Alerts Generated Due to Temperature Exceeding the Threshold
 ![image](https://github.com/user-attachments/assets/d9ceb2fa-073d-401c-8107-8335a1b17d6b)
+
+6. Stopping the Weather Monitoring Service
+![image](https://github.com/user-attachments/assets/cecca245-d48b-4db8-b04a-6ae5733b4d4a)
+
