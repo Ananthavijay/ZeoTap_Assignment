@@ -65,7 +65,6 @@ rule_engine_project/
 ### 4. Rule Combination
 - Select the rules you want to combine, then press Combine to merge the selected rules
 
-![image](https://github.com/user-attachments/assets/e8d2d495-bbb7-4db5-9e3c-d7c6e9f9f8b4)
 ![image](https://github.com/user-attachments/assets/5f1e6beb-20d4-4d28-a4eb-271ed32cc065)
 
 ### 5. Rule Validation
